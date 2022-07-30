@@ -16,7 +16,7 @@ namespace Acordo.UI
 
         protected void btnCadastro_Click(object sender, EventArgs e)
         {
-           // Response.Write("<script language='javascript'>window.open('/Paginas/Cadastro.aspx');</script>");
+            Response.Redirect("/Paginas/Cadastro.aspx");
         }
 
         protected void btnRelatorio_Click(object sender, EventArgs e)

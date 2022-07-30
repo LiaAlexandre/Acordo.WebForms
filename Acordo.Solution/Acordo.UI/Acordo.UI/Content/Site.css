@@ -10,6 +10,7 @@ body {
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
+    background-color: black;
 }
 
 /* Set widths on the form inputs since otherwise they're 100% wide */
@@ -36,6 +37,16 @@ textarea {
     font-size: 20pt !important;
     text-align:right;
 }
+
+.CadastroPanel {
+    background-color: black !important;
+    width: 100px !important;
+    height: 100px !important;
+}
+
+.cadastrarButton {
+    align-content: flex-end;
+}
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
     .jumbotron {
@@ -46,5 +57,4 @@ textarea {
         padding: 0;
     }
 }
-
 
