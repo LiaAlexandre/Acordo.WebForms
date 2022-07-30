@@ -37,28 +37,13 @@
                 <%--Site Scripts--%>
             </Scripts>
         </asp:ScriptManager>
-
-        <div class="navbar navbar-inverse navbar-fixed-top">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" runat="server" href="~/">Application name</a>
-                </div>
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li><a runat="server" href="~/">Inicio</a></li>
-                        <li><a runat="server" href="~/Paginas/Cadastro">Cadastro</a></li>
-                        <li><a runat="server" href="~/Paginas/Relatorios">Relatórios</a></li>
-                        <li><a runat="server" href="~/Paginas/Importar">Importar</a></li>
-                        <li><a runat="server" href="~/Paginas/Exportar">Exportar</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+        <asp:Panel ID="pnlPrincipal" runat="server">
+            <asp:Button ID="btnInicio" runat="server" Text="Início" OnClick="btnInicio_Click" /><br />
+            <asp:Button ID="btnCadastro" runat="server" Text="Cadastro" OnClick="btnCadastro_Click" /><br />
+            <asp:Button ID="btnRelatorio" runat="server" Text="Relatórios" OnClick="btnRelatorio_Click" /><br />
+            <asp:Button ID="btnImportar" runat="server" Text="Importar" OnClick="btnImportar_Click" /><br />
+            <asp:Button ID="btnExportar" runat="server" Text="Exportar" OnClick="btnExportar_Click" />
+        </asp:Panel>
         <div class="container body-content">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
