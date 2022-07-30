@@ -15,6 +15,7 @@
     <webopt:bundlereference runat="server" path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
+
 </head>
 <body>
     <form runat="server">
@@ -37,22 +38,35 @@
                 <%--Site Scripts--%>
             </Scripts>
         </asp:ScriptManager>
-        <asp:Panel ID="pnlPrincipal" runat="server">
-            <asp:Button ID="btnInicio" runat="server" Text="Início" OnClick="btnInicio_Click" /><br />
-            <asp:Button ID="btnCadastro" runat="server" Text="Cadastro" OnClick="btnCadastro_Click" /><br />
-            <asp:Button ID="btnRelatorio" runat="server" Text="Relatórios" OnClick="btnRelatorio_Click" /><br />
-            <asp:Button ID="btnImportar" runat="server" Text="Importar" OnClick="btnImportar_Click" /><br />
-            <asp:Button ID="btnExportar" runat="server" Text="Exportar" OnClick="btnExportar_Click" />
+        <asp:Panel ID="pnlPrincipal" runat="server" BackColor="Silver" Direction="LeftToRight" Height="200%" Width="100%">
+            <br />
+            <asp:Panel ID="Panel1" runat="server">
+                <asp:ImageButton ID="ImageButton1" runat="server" Height="30px" ImageAlign="Middle" ImageUrl="~/fonts/tela-do-monitor.png" Width="30px" CssClass="iconButton" />
+                <asp:Button ID="btnInicio" runat="server" Text="Início" OnClick="btnInicio_Click" BackColor="Silver" BorderStyle="None" CssClass="inicioButton" Font-Bold="True"  /><br />
+            </asp:Panel><br />
+            <asp:Panel ID="Panel2" runat="server">
+                <asp:ImageButton ID="ImageButton2" runat="server" Height="30px" ImageAlign="Middle" ImageUrl="~/fonts/new-document.png" Width="30px" CssClass="iconButton" />
+                <asp:Button ID="btnCadastro" runat="server" BackColor="Silver" BorderStyle="None" Font-Bold="True" Text="Cadastro" CssClass="inicioButton" data-toggle="modal" data-target="#cadastro"  />            <br />
+            </asp:Panel>
+            <asp:Panel ID="Panel3" runat="server">
+                <asp:ImageButton ID="ImageButton3" runat="server" Height="30px" ImageUrl="~/fonts/relatorio.png" Width="30px" CssClass="iconButton" />
+                <asp:Button ID="btnRelatorio" onclick="btnRelatorio_Click" runat="server" BackColor="Silver" BorderStyle="None" Font-Bold="True" Text="Relatórios" CssClass="inicioButton" data-toggle="modal" data-target="#relatorio" />
+                <br />
+            </asp:Panel>
+            <asp:Panel ID="Panel4" runat="server">
+                <asp:ImageButton ID="ImageButton4" runat="server" Height="30px" ImageUrl="~/fonts/importar.png" Width="30px" CssClass="iconButton" />
+                <asp:Button ID="btnImportar" runat="server" BackColor="Silver" BorderStyle="None" Font-Bold="True"  OnClick="btnImportar_Click" Text="Importar" CssClass="inicioButton" />
+                <br />
+            </asp:Panel>
+            <asp:Panel ID="Panel5" runat="server">
+                <asp:ImageButton ID="ImageButton5" runat="server" Height="30px" ImageUrl="~/fonts/exportar.png" Width="30px" CssClass="iconButton" />
+                <asp:Button ID="btnExportar" runat="server" Text="Exportar" OnClick="btnExportar_Click" BackColor="Silver" BorderStyle="None" Font-Bold="True" CssClass="inicioButton" />
+            </asp:Panel>
         </asp:Panel>
-        <div class="container body-content">
+
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
             <hr />
-            <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>
-            </footer>
-        </div>
-
     </form>
 </body>
 </html>

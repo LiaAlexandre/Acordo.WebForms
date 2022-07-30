@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -15,12 +16,11 @@ namespace Acordo.UI
 
         protected void btnCadastro_Click(object sender, EventArgs e)
         {
-            Response.Redirect("/Paginas/Cadastro.aspx");
+           // Response.Write("<script language='javascript'>window.open('/Paginas/Cadastro.aspx');</script>");
         }
 
         protected void btnRelatorio_Click(object sender, EventArgs e)
         {
-
             Response.Redirect("/Paginas/Relatorios.aspx");
         }
 

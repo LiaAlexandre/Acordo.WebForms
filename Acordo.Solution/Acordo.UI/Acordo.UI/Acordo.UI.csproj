@@ -114,7 +114,12 @@
     <Content Include="Content\Site.css" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
+    <Content Include="fonts\exportar.png" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="fonts\importar.png" />
+    <Content Include="fonts\new-document.png" />
+    <Content Include="fonts\relatorio.png" />
+    <Content Include="fonts\tela-do-monitor.png" />
     <Content Include="Global.asax" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
