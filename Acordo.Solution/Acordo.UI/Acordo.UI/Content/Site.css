@@ -20,14 +20,35 @@ textarea {
     max-width: 280px;
 }
 
-.iconButton {
-    margin-bottom: auto;
-    padding: 8px 0px 0px 8px;
-    width: 100px !important;
-    height: 100px !important;
-    margin: 10px 10px 0px 0px;
-    align-content: center;
+.form1 {
+    max-width: 350px !important;
+    margin: 2rem auto;
+    border: 2px solid;
+    padding: 2rem;
 }
+
+.panelCadastro {
+    max-width: 350px !important;
+    margin: 2rem auto;
+    border: 2px solid;
+    padding: 2rem;       
+}
+
+.panelCadastro label{
+    display:block;
+    padding:5rem 0;
+}
+
+
+
+    .iconButton {
+        margin-bottom: auto;
+        padding: 8px 0px 0px 8px;
+        width: 100px !important;
+        height: 100px !important;
+        margin: 10px 10px 0px 0px;
+        align-content: center;
+    }
 
 .inicioButton {
     display:inline-block;

@@ -1,4 +1,7 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Relatorios.aspx.cs"  MasterPageFile="~/Site.Master" Inherits="Acordo.UI.Paginas.Relatorios" %>
+﻿
+
+
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Relatorios.aspx.cs"  MasterPageFile="~/Site.Master" Inherits="Acordo.UI.Paginas.Relatorios" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <asp:Panel ID="Panel1" runat="server" Height="900px" Width="500px" GroupingText="Relatorios" BackColor="Black">

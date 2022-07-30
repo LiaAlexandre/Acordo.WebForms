@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Acordo.Servico;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -23,10 +24,21 @@ namespace Acordo.UI.Paginas
 
             bool resultadoValicadao = validarCampos(nome, telefone, email, cpfCnpj, valorAcordo);
 
+            bool isCpf = txtCpfCnpj.MaxLength == 11 ? true : false;
+
             if (!resultadoValicadao)
                 return;
 
             Decimal valorAcordoConvertido = Decimal.Parse(valorAcordo);
+
+            AcordoServico acordoServico = new AcordoServico();
+
+
+            if (isCpf)
+                acordoServico.SalvarAcordo(nome, email, telefone, cpfCnpj, null, valorAcordoConvertido);
+            else
+                acordoServico.SalvarAcordo(nome, email, telefone, null, cpfCnpj, valorAcordoConvertido);
+
 
             lblMensagem.Text = "Cadastro inserido!";
             lblMensagem.ForeColor = System.Drawing.Color.Green;
