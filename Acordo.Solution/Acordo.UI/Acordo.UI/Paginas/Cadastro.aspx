@@ -6,19 +6,19 @@
         <asp:Label ID="Label1" runat="server" Text="Nome:"></asp:Label>
         <asp:TextBox ID="txtNome" runat="server" ForeColor="#333333"></asp:TextBox>
         </asp:Panel>
-        <asp:Panel ID="Panel3" runat="server" BackColor="Black" BorderColor="Black" BorderStyle="None" Direction="LeftToRight" Height="35px" HorizontalAlign="Center" Width="230px">
+        <asp:Panel ID="Panel3" runat="server" BackColor="Black" BorderColor="Black" BorderStyle="None">
             <asp:Label ID="Label2" runat="server" Text="Telefone:"></asp:Label>
             <asp:TextBox ID="txtTelefone" runat="server" ForeColor="#333333"></asp:TextBox>
         </asp:Panel>
-        <asp:Panel ID="Panel4" runat="server" BackColor="Black" Direction="LeftToRight" Height="35px" HorizontalAlign="Center" Width="250px">
+        <asp:Panel ID="Panel4" runat="server" BackColor="Black">
             <asp:Label ID="Label3" runat="server" Text="E-mail:"></asp:Label>
             <asp:TextBox ID="txtEmail" runat="server" ForeColor="#666666"></asp:TextBox>
         </asp:Panel>
-        <asp:Panel ID="Panel5" runat="server" BackColor="Black" Direction="LeftToRight" Height="35px" HorizontalAlign="Center" Width="230px">
+        <asp:Panel ID="Panel5" runat="server" BackColor="Black" >
             <asp:Label ID="Label4" runat="server" Text="CPF/CNPJ:"></asp:Label>
             <asp:TextBox ID="txtCpfCnpj" runat="server" ForeColor="#666666" class="cpfOuCnpj"></asp:TextBox>
          </asp:Panel>
-        <asp:Panel ID="Panel6" runat="server" BackColor="Black" Direction="LeftToRight" Height="35px" HorizontalAlign="Center" Width="230px">
+        <asp:Panel ID="Panel6" runat="server" BackColor="Black">
             <asp:Label ID="Label5" runat="server" Text="Valor Acordo:"></asp:Label>
             <asp:TextBox ID="txtValorAcordo" runat="server" ForeColor="#666666"></asp:TextBox>
         </asp:Panel>

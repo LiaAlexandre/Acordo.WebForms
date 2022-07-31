@@ -17,32 +17,21 @@
 
 
 
+
+
     <style type="text/css">
         .auto-style1 {
-            width: 1399px;
-            height: 1097px;
-        }
-
-        .auto-style2 {
-            width: 232px;
-            height: 1097px;
-        }
-
-        .auto-style3 {
-            width: 7px;
-            height: 1097px;
-        }
-
-        .auto-style4 {
-            height: 1097px;
+            height: 590px;
         }
     </style>
 
 
 
+
+
 </head>
 <body>
-    <form runat="server" class="form1">
+    <form runat="server" class="form1" visible="True" style="border-color:transparent;">
         <asp:ScriptManager runat="server">
             <Scripts>
                 <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
@@ -62,9 +51,9 @@
                 <%--Site Scripts--%>
             </Scripts>
         </asp:ScriptManager>
-        <table>
+        <table style="border-color:transparent;">
             <tr>
-                <td>
+                <td class="auto-style1">
                     <div width="350px">
                         <asp:ImageButton ID="ImageButton1" runat="server" Height="30px" ImageAlign="Middle" ImageUrl="~/fonts/tela-do-monitor.png" Width="30px" CssClass="iconButton" />
                         <asp:Button ID="btnInicio" runat="server" BackColor="Silver" BorderStyle="None" CssClass="inicioButton" Font-Bold="True" OnClick="btnInicio_Click" Text="Início" />
@@ -84,7 +73,7 @@
                     </div>
                 </td>
 
-                <td >
+                <td class="auto-style1" >
                     <div class="contentPlaceHolder" width="1800px">
                         <asp:ContentPlaceHolder ID="MainContent" runat="server">
                         </asp:ContentPlaceHolder>
