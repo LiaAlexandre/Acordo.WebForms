@@ -15,13 +15,13 @@ namespace Acordo.UI.Paginas
     {
 
         /// <summary>
-        /// Panel1 control.
+        /// CadastroPanel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Panel1;
+        protected global::System.Web.UI.WebControls.Panel CadastroPanel;
 
         /// <summary>
         /// Panel2 control.

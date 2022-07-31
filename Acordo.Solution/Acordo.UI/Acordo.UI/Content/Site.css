@@ -141,8 +141,32 @@ legend {
     padding: 10px 10px 10px 10px;
 }
 
-input{
-    border-radius: 4px!important;
+.buttonRelatorio {
+    background-color: #000066;
+    color: white;
+    position: relative;
+    left: 600px;
+    top: 20px;
+    border-radius: 3px !important;
+    margin: 1rem 0;
+    width: auto;
+    padding: 10px 10px 10px 10px;
+}
+
+.gridRelatorio {
+    padding: 10px 10px 10px 10px !important;
+}
+
+input {
+    border-radius: 4px !important;
+}
+
+select {
+    border-radius: 4px !important;
+}
+
+.dropDownNomes {
+    color: black !important;
 }
 /* Modal Footer */
 .modal-footer {
