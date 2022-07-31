@@ -55,7 +55,17 @@ namespace Acordo.Servico
                             if (nome == "Nome")
                                 continue;
 
-                            bool resultadoValidacao = ValidarCampos(nome, telefone, email, cpfCnpj, valorAcordo);
+                            bool isCpf = cpfCnpj.Length == 11 ? true : false;
+
+                            string cpf = null;
+                            string cnpj = null;
+
+                            if (isCpf)
+                                cpf = cpfCnpj;
+                            else
+                                cnpj = cpfCnpj;
+
+                            bool resultadoValidacao = ValidarCampos(nome, telefone, email, cpf, cnpj, valorAcordo);
 
                             if (!resultadoValidacao)
                                 continue;
@@ -68,7 +78,7 @@ namespace Acordo.Servico
                             if (acordoImportacao != null)
                                 continue;
 
-                            _acordoRepositorio.SalvarImportacao(nome, email, telefone, cpfCnpj, cpfCnpj, valorAcordoConvertido, dataAcordoConvertido);
+                            _acordoRepositorio.SalvarImportacao(nome, email, telefone, cpf, cnpj, valorAcordoConvertido, dataAcordoConvertido);
                         }
                     }
                 }
@@ -129,7 +139,79 @@ namespace Acordo.Servico
             }
         }
 
-        private static bool ValidarCampos(String nome, String telefone, String email, String cpfCnpj, string valorAcordo)
+        public static bool ValidarCNPJ(string cnpj)
+        {
+            int[] multiplicador1 = new int[12] { 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2 };
+            int[] multiplicador2 = new int[13] { 6, 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2 };
+            int soma;
+            int resto;
+            string digito;
+            string tempCnpj;
+            cnpj = cnpj.Trim();
+            cnpj = cnpj.Replace(".", "").Replace("-", "").Replace("/", "");
+            if (cnpj.Length != 14)
+                return false;
+            tempCnpj = cnpj.Substring(0, 12);
+            soma = 0;
+            for (int i = 0; i < 12; i++)
+                soma += int.Parse(tempCnpj[i].ToString()) * multiplicador1[i];
+            resto = (soma % 11);
+            if (resto < 2)
+                resto = 0;
+            else
+                resto = 11 - resto;
+            digito = resto.ToString();
+            tempCnpj = tempCnpj + digito;
+            soma = 0;
+            for (int i = 0; i < 13; i++)
+                soma += int.Parse(tempCnpj[i].ToString()) * multiplicador2[i];
+            resto = (soma % 11);
+            if (resto < 2)
+                resto = 0;
+            else
+                resto = 11 - resto;
+            digito = digito + resto.ToString();
+            return cnpj.EndsWith(digito);
+        }
+
+        public static bool ValidarCPF(string cpf)
+        {
+            int[] multiplicador1 = new int[9] { 10, 9, 8, 7, 6, 5, 4, 3, 2 };
+            int[] multiplicador2 = new int[10] { 11, 10, 9, 8, 7, 6, 5, 4, 3, 2 };
+            string tempCpf;
+            string digito;
+            int soma;
+            int resto;
+            if (cpf.Length != 11)
+                return false;
+
+            cpf = cpf.Trim();
+            cpf = cpf.Replace(".", "").Replace("-", "");
+            tempCpf = cpf.Substring(0, 9);
+            soma = 0;
+
+            for (int i = 0; i < 9; i++)
+                soma += int.Parse(tempCpf[i].ToString()) * multiplicador1[i];
+            resto = soma % 11;
+            if (resto < 2)
+                resto = 0;
+            else
+                resto = 11 - resto;
+            digito = resto.ToString();
+            tempCpf = tempCpf + digito;
+            soma = 0;
+            for (int i = 0; i < 10; i++)
+                soma += int.Parse(tempCpf[i].ToString()) * multiplicador2[i];
+            resto = soma % 11;
+            if (resto < 2)
+                resto = 0;
+            else
+                resto = 11 - resto;
+            digito = digito + resto.ToString();
+            return cpf.EndsWith(digito);
+        }
+
+        private static bool ValidarCampos(String nome, String telefone, String email, String cpf, String cnpj, string valorAcordo)
         {
             Decimal valorAcordoConvertido = 0;
 
@@ -143,9 +225,20 @@ namespace Acordo.Servico
                 return false;
             }
 
-            if (!AcordoServico.ValidarEmail(email))
+            if (!String.IsNullOrEmpty(cpf))
             {
-                return false;
+                if (!AcordoServico.ValidarCPF(cpf))
+                {
+                    return false;
+                }
+            }
+
+            if (!String.IsNullOrEmpty(cnpj))
+            {
+                if (!AcordoServico.ValidarCNPJ(cnpj))
+                {
+                    return false;
+                }
             }
 
             return true;

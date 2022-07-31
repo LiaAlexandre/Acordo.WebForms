@@ -25,9 +25,17 @@ namespace Acordo.UI.Paginas
                 String cpfCnpj = AcordoServico.RemoverCaracteresEspeciais(txtCpfCnpj.Text);
                 string valorAcordo = txtValorAcordo.Text;
 
-                bool resultadoValicadao = validarCampos(nome, telefone, email, cpfCnpj, valorAcordo);
+                bool isCpf = cpfCnpj.Length == 11 ? true : false;
 
-                bool isCpf = txtCpfCnpj.MaxLength == 11 ? true : false;
+                string cpf = null;
+                string cnpj = null;
+
+                if (isCpf)
+                    cpf = cpfCnpj;
+                else
+                    cnpj = cpfCnpj;
+
+                bool resultadoValicadao = validarCampos(nome, telefone, email, cpf, cnpj, valorAcordo);
 
                 if (!resultadoValicadao)
                     return;
@@ -37,11 +45,7 @@ namespace Acordo.UI.Paginas
                 AcordoServico acordoServico = new AcordoServico();
 
 
-                if (isCpf)
-                    acordoServico.SalvarAcordo(nome, email, telefone, cpfCnpj, null, valorAcordoConvertido);
-                else
-                    acordoServico.SalvarAcordo(nome, email, telefone, null, cpfCnpj, valorAcordoConvertido);
-
+                acordoServico.SalvarAcordo(nome, email, telefone, cpf, cnpj, valorAcordoConvertido);
 
                 lblMensagem.Text = "Cadastro inserido!";
                 lblMensagem.ForeColor = System.Drawing.Color.Green;
@@ -56,7 +60,7 @@ namespace Acordo.UI.Paginas
         }
 
 
-        private bool validarCampos(String nome, String telefone, String email, String cpfCnpj, string valorAcordo)
+        private bool validarCampos(String nome, String telefone, String email, String cpf, String cnpj, String valorAcordo)
         {
             Decimal valorAcordoConvertido = 0;
 
@@ -84,7 +88,29 @@ namespace Acordo.UI.Paginas
                 return false;
             }
 
-            return true;
+            if (!String.IsNullOrEmpty(cpf))
+            {
+                if (!AcordoServico.ValidarCPF(cpf))
+                {
+                    lblMensagem.Text = "O campo: [CPF] foi informado incorretamente";
+                    lblMensagem.ForeColor = System.Drawing.Color.Red;
+                    lblMensagem.Visible = true;
+                    return false;
+                }
+            }
+
+            if (!String.IsNullOrEmpty(cnpj))
+            {
+                if (!AcordoServico.ValidarCNPJ(cnpj))
+                {
+                    lblMensagem.Text = "O campo: [CNPJ] foi informado incorretamente";
+                    lblMensagem.ForeColor = System.Drawing.Color.Red;
+                    lblMensagem.Visible = true;
+                    return false;
+                }
+            }
+
+                return true;
         }
 
         
