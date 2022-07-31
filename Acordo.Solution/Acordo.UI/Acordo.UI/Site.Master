@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="Acordo.UI.SiteMaster" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="Acordo.UI.SiteMaster"  %>
 
 <!DOCTYPE html>
 
@@ -6,7 +6,7 @@
 <head runat="server">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%: Page.Title %> - My ASP.NET Application</title>
+    <title><%: Page.Title %>- My ASP.NET Application</title>
 
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
@@ -80,7 +80,15 @@
                     </div>
                 </td>
             </tr>
-            <table>
+            <tbody>
+                <tr><td>
+
+                    <asp:TextBox ID="txtCidade" runat="server" BackColor="#CCCCCC" Font-Size="10pt" Height="16px" OnTextChanged="txtCidade_TextChanged" Width="319px"></asp:TextBox>
+
+                    </td></tr>
+            </tbody>
+            </table>
+        <asp:Label ID="lblCidadeStatus" runat="server" Text="" Visible="false"></asp:Label>
     </form>
 </body>
 </html>

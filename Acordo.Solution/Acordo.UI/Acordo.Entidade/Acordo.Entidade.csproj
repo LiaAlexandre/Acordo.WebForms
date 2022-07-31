@@ -44,6 +44,8 @@
     <Compile Include="Acordo.cs" />
     <Compile Include="AcordoHistorico.cs" />
     <Compile Include="AcordoImportacao.cs" />
+    <Compile Include="InfoCidade.cs" />
+    <Compile Include="JsonApiCidade.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
