@@ -25,5 +25,21 @@ namespace Acordo.Repositorio
 
            SqlMapper.Execute(_connectionFactory.GetConnection, query, param, null, null, CommandType.StoredProcedure);
         }
+
+        public void SalvarImportacao(String nome, String email, String telefone, String cpf, String cnpj, Decimal valorDoAcordo, DateTime dataAcordo)
+        {
+            var query = "SP_INSERT_CRC_ACORDOIMPORTACAO_CVS";
+            var param = new DynamicParameters();
+            param.Add("@paramIDACORDO", new Random().Next(50000));
+            param.Add("@paramDataAcordo", dataAcordo);
+            param.Add("@paramNomeAcordo", nome);
+            param.Add("@paramEmailAcordo", email);
+            param.Add("@paramTelefone", telefone);
+            param.Add("@paramCPF", cpf);
+            param.Add("@paramCNPJ", cnpj);
+            param.Add("@paramValorAcordo", valorDoAcordo);
+
+            SqlMapper.Execute(_connectionFactory.GetConnection, query, param, null, null, CommandType.StoredProcedure);
+        }
     }
 }

@@ -20,9 +20,9 @@ namespace Acordo.UI.Paginas
             try
             {
                 String nome = txtNome.Text;
-                String telefone = RemoverCaracteresEspeciais(txtTelefone.Text);
+                String telefone = AcordoServico.RemoverCaracteresEspeciais(txtTelefone.Text);
                 String email = txtEmail.Text;
-                String cpfCnpj = RemoverCaracteresEspeciais(txtCpfCnpj.Text);
+                String cpfCnpj = AcordoServico.RemoverCaracteresEspeciais(txtCpfCnpj.Text);
                 string valorAcordo = txtValorAcordo.Text;
 
                 bool resultadoValicadao = validarCampos(nome, telefone, email, cpfCnpj, valorAcordo);
@@ -55,13 +55,6 @@ namespace Acordo.UI.Paginas
             }
         }
 
-        private string RemoverCaracteresEspeciais(string texto)
-        {
-            string pattern = @"(?i)[^0-9a-záéíóúàèìòùâêîôûãõç\s]";
-            string replacement = "";
-            Regex rgx = new Regex(pattern);
-            return rgx.Replace(texto.Replace(" ", ""), replacement);
-        }
 
         private bool validarCampos(String nome, String telefone, String email, String cpfCnpj, string valorAcordo)
         {
@@ -75,7 +68,7 @@ namespace Acordo.UI.Paginas
                 return false;
             }
 
-            if (!ValidarTelefone(telefone))
+            if (!AcordoServico.ValidarTelefone(telefone))
             {
                 lblMensagem.Text = "O campo: [Telefone] foi informado incorretamente";
                 lblMensagem.ForeColor = System.Drawing.Color.Red;
@@ -83,7 +76,7 @@ namespace Acordo.UI.Paginas
                 return false;
             }
 
-            if (!ValidarEmail(email))
+            if (!AcordoServico.ValidarEmail(email))
             {
                 lblMensagem.Text = "O campo: [Email] foi informado incorretamente";
                 lblMensagem.ForeColor = System.Drawing.Color.Red;
@@ -94,31 +87,6 @@ namespace Acordo.UI.Paginas
             return true;
         }
 
-        private static bool ValidarEmail(string email)
-        {
-            string strModelo = "^([0-9a-zA-Z]([-.\\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\\w]*[0-9a-zA-Z]\\.)+[a-zA-Z]{2,9})$";
-            if (System.Text.RegularExpressions.Regex.IsMatch(email, strModelo))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-
-        private static bool ValidarTelefone(string telefone)
-        {
-            string strModelo = "\\d{9}";
-            if (System.Text.RegularExpressions.Regex.IsMatch(telefone, strModelo))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
+        
     }
 }
