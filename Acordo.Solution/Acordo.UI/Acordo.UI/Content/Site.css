@@ -61,21 +61,97 @@ textarea {
         padding: 0;
     }
 }
-
-.modalAcordo {
-    display: none; /* Hidden by default */
+.modalContent {
+    margin: 0px 150px 0px 150px;
+    align-content: center;
+    width: 800px !important;
+    height: 400px !important;
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
+    border-bottom: unset;
+    border-radius:30px!important;
 }
 
-.contentPlaceHolder{
+legend {
+    border-bottom: unset;
+}
+
+.contentPlaceHolder {
     margin: 0px 150px 0px 150px;
-    align-content:center;
-    width: 800px!important;
-    height: 400px!important;
+    align-content: center;
+    width: 800px !important;
+    height: 400px !important;
+    border-radius: 30px !important;
+}
+
+.close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    padding-right:15px;
+    padding-left:15px;
+}
+
+.closeText {
+    color: white;
+    float: left;
+    font-size: 20px;
+    font-weight: bold;
+    padding-top: 5px;
+    color: white;
+}
+
+    .close:hover,
+    .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+.modal-header {
+    padding: 2px 16px;
+    height: 40px;
+    background-color: #1C1B1B;
+    border-bottom: unset;
+}
+
+/* Modal Body */
+.modal-body {
+    padding: 2px 16px;
+    height: 300px;
+    background-color: #2D2D2D;
+    border-bottom: unset;
+}
+
+.labelClass{
+    display: block !important;
+    padding: 1rem 0;
+}
+
+.buttonCadastro {
+    background-color: #000066;
+    color:white;
+    position:unset;
+    left: 600px;
+    top:20px;
+    border-radius: 3px;
+    margin: 1rem 0;
+    width: auto;
+    padding: 10px 10px 10px 10px;
+}
+
+input{
+    border-radius: 4px!important;
+}
+/* Modal Footer */
+.modal-footer {
+    padding: 2px 16px;
+    height: 30px;
+    background-color: #1C1B1B;
+    border-top: unset;
+}
+
+.tdCadastro{
+    padding:20px 40px 0px 40px;
 }
