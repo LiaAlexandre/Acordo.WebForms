@@ -52,7 +52,7 @@ namespace Acordo.UI.Paginas
                     lblResultadoImportacao.Visible = true;
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 lblResultadoImportacao.Text = "Erro na importação dos dados";
                 lblResultadoImportacao.ForeColor = System.Drawing.Color.Red;

@@ -79,6 +79,30 @@ namespace Acordo.Servico
             }
         }
 
+        public List<String> BuscarNomesDosAcordos()
+        {
+            try
+            {
+                return _acordoRepositorio.BuscarNomesDosAcordos().Distinct().ToList();
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public List<AcordoHistorico> ListarAcordosHistorico(string nome, DateTime dataInicio, DateTime dataFim)
+        {
+            try
+            {
+                return _acordoRepositorio.ListarAcordosHistorico(nome, dataInicio, dataFim).ToList();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public static bool ValidarEmail(string email)
         {
             string strModelo = "^([0-9a-zA-Z]([-.\\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\\w]*[0-9a-zA-Z]\\.)+[a-zA-Z]{2,9})$";

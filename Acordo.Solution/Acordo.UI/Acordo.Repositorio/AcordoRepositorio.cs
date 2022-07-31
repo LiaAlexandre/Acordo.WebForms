@@ -51,5 +51,23 @@ namespace Acordo.Repositorio
 
             return SqlMapper.QueryFirstOrDefault<AcordoImportacao>(_connectionFactory.GetConnection, query, param, null,  null, CommandType.StoredProcedure);
         }
+
+        public IEnumerable<String> BuscarNomesDosAcordos()
+        {
+            var query = "SP_BUSCAR_CRC_ACORDO_HISTORICO_NOMES";
+
+            return SqlMapper.QueryMultiple(_connectionFactory.GetConnection, query, null, null, null, CommandType.StoredProcedure).Read<string>(); 
+        }
+
+        public IEnumerable<AcordoHistorico> ListarAcordosHistorico(string nome, DateTime dataInicio, DateTime dataFim)
+        {
+            var query = "SP_LISTAR_CRC_ACORDO_HISTORICO";
+            var param = new DynamicParameters();
+            param.Add("@paramNomeAcordoHistorico", nome);
+            param.Add("@paramDataInicioAcordoHistorico", dataInicio);
+            param.Add("@paramDataFimAcordoHistorico", dataFim);
+
+            return SqlMapper.QueryMultiple(_connectionFactory.GetConnection, query, param, null, null, CommandType.StoredProcedure).Read<AcordoHistorico>();
+        }
     }
 }

@@ -47,7 +47,7 @@ namespace Acordo.UI.Paginas
                 lblMensagem.ForeColor = System.Drawing.Color.Green;
                 lblMensagem.Visible = true;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 lblMensagem.Text = "Erro no sistema";
                 lblMensagem.ForeColor = System.Drawing.Color.Red;

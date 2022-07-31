@@ -42,13 +42,13 @@ namespace Acordo.UI.Paginas
         protected global::System.Web.UI.WebControls.Label Label1;
 
         /// <summary>
-        /// DropDownList1 control.
+        /// drpNomes control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList1;
+        protected global::System.Web.UI.WebControls.DropDownList drpNomes;
 
         /// <summary>
         /// Label2 control.
@@ -60,6 +60,24 @@ namespace Acordo.UI.Paginas
         protected global::System.Web.UI.WebControls.Label Label2;
 
         /// <summary>
+        /// txtDataInicio control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtDataInicio;
+
+        /// <summary>
+        /// txtDataFim control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtDataFim;
+
+        /// <summary>
         /// Panel3 control.
         /// </summary>
         /// <remarks>
@@ -69,21 +87,21 @@ namespace Acordo.UI.Paginas
         protected global::System.Web.UI.WebControls.Panel Panel3;
 
         /// <summary>
-        /// GridView1 control.
+        /// grdAcordosHistorico control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
+        protected global::System.Web.UI.WebControls.GridView grdAcordosHistorico;
 
         /// <summary>
-        /// Button1 control.
+        /// btnBuscar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.Button btnBuscar;
     }
 }

@@ -261,6 +261,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Acordo.Entidade\Acordo.Entidade.csproj">
+      <Project>{E78D06A8-A9F2-411F-8621-EE8C8B1271A8}</Project>
+      <Name>Acordo.Entidade</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Acordo.Servico\Acordo.Servico.csproj">
       <Project>{C1C5DAF1-09CA-4FFD-8387-C812A35EC291}</Project>
       <Name>Acordo.Servico</Name>
