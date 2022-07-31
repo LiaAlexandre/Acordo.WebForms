@@ -21,24 +21,13 @@ textarea {
 }
 
 .form1 {
-    max-width: 350px !important;
-    margin: 2rem auto;
-    border: 2px solid;
-    padding: 2rem;
+    border-style: solid;
+    border-color: inherit;
+    border-width: 2px;
+    /*max-width: 350px !important;*/
+    /*width: 1441px;*/
+    /*margin-right: 832px;*/
 }
-
-.panelCadastro {
-    max-width: 350px !important;
-    margin: 2rem auto;
-    border: 2px solid;
-    padding: 2rem;       
-}
-
-.panelCadastro label{
-    display:block;
-    padding:5rem 0;
-}
-
 
 
     .iconButton {
@@ -59,12 +48,6 @@ textarea {
     text-align:right;
 }
 
-.CadastroPanel {
-    background-color: black !important;
-    width: 100px !important;
-    height: 100px !important;
-}
-
 .cadastrarButton {
     align-content: flex-end;
 }
@@ -79,3 +62,20 @@ textarea {
     }
 }
 
+.modalAcordo {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+}
+
+.contentPlaceHolder{
+    margin: 0px 150px 0px 150px;
+    align-content:center;
+    width: 800px!important;
+    height: 400px!important;
+}

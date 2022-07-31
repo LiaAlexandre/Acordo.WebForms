@@ -1,7 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Exportar.aspx.cs" MasterPageFile="~/Site.Master" Inherits="Acordo.UI.Paginas.Exportar" %>
 
-<asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    <asp:Panel ID="Panel1" runat="server" Height="900px" Width="500px" GroupingText="Exportar" BackColor="Black">
+<asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server" class="contentPlaceHolder">
+    <asp:Panel ID="Panel1" runat="server" GroupingText="Exportar" BackColor="Black"  class="contentPlaceHolder">
     <asp:Panel ID="Panel2" runat="server" BackColor="Black">
         <asp:Label ID="Label1" runat="server" Text="Nome"></asp:Label>
         <asp:DropDownList ID="DropDownList1" runat="server">

@@ -12,8 +12,31 @@
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
 
-    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <webopt:BundleReference runat="server" Path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
+
+
+    <style type="text/css">
+        .auto-style1 {
+            width: 1399px;
+            height: 1097px;
+        }
+
+        .auto-style2 {
+            width: 232px;
+            height: 1097px;
+        }
+
+        .auto-style3 {
+            width: 7px;
+            height: 1097px;
+        }
+
+        .auto-style4 {
+            height: 1097px;
+        }
+    </style>
 
 
 
@@ -39,41 +62,42 @@
                 <%--Site Scripts--%>
             </Scripts>
         </asp:ScriptManager>
-        <asp:Panel ID="pnlPrincipal" runat="server" BackColor="Silver" Direction="LeftToRight" Height="200%" Width="100%">
-            <br />
-            <asp:Panel ID="Panel1" runat="server">
-                <asp:ImageButton ID="ImageButton1" runat="server" Height="30px" ImageAlign="Middle" ImageUrl="~/fonts/tela-do-monitor.png" Width="30px" CssClass="iconButton" />
-                <asp:Button ID="btnInicio" runat="server" Text="Início" OnClick="btnInicio_Click" BackColor="Silver" BorderStyle="None" CssClass="inicioButton" Font-Bold="True"  />
-            </asp:Panel><br />
-            <asp:Panel ID="Panel2" runat="server">
-                <asp:ImageButton ID="ImageButton2" runat="server" Height="30px" ImageAlign="Middle" ImageUrl="~/fonts/new-document.png" Width="30px" CssClass="iconButton" />
-                <asp:Button ID="btnCadastro" runat="server"  onclick="btnCadastro_Click" BackColor="Silver" BorderStyle="None" Font-Bold="True" Text="Cadastro" CssClass="inicioButton" />
-            </asp:Panel>
-            <asp:Panel ID="Panel3" runat="server">
-                <asp:ImageButton ID="ImageButton3" runat="server" Height="30px" ImageUrl="~/fonts/relatorio.png" Width="30px" CssClass="iconButton" />
-                <asp:Button ID="btnRelatorio" onclick="btnRelatorio_Click" runat="server" BackColor="Silver" BorderStyle="None" Font-Bold="True" Text="Relatórios" CssClass="inicioButton" />
-                <br />
-            </asp:Panel>
-            <asp:Panel ID="Panel4" runat="server">
-                <asp:ImageButton ID="ImageButton4" runat="server" Height="30px" ImageUrl="~/fonts/importar.png" Width="30px" CssClass="iconButton" />
-                <asp:Button ID="btnImportar" runat="server" BackColor="Silver" BorderStyle="None" Font-Bold="True"  OnClick="btnImportar_Click" Text="Importar" CssClass="inicioButton" />
-                <br />
-            </asp:Panel>
-            <asp:Panel ID="Panel5" runat="server">
-                <asp:ImageButton ID="ImageButton5" runat="server" Height="30px" ImageUrl="~/fonts/exportar.png" Width="30px" CssClass="iconButton" />
-                <asp:Button ID="btnExportar" runat="server" Text="Exportar" OnClick="btnExportar_Click" BackColor="Silver" BorderStyle="None" Font-Bold="True" CssClass="inicioButton" />
-            </asp:Panel>
-        </asp:Panel>
+        <table>
+            <tr>
+                <td>
+                    <div width="350px">
+                        <asp:ImageButton ID="ImageButton1" runat="server" Height="30px" ImageAlign="Middle" ImageUrl="~/fonts/tela-do-monitor.png" Width="30px" CssClass="iconButton" />
+                        <asp:Button ID="btnInicio" runat="server" BackColor="Silver" BorderStyle="None" CssClass="inicioButton" Font-Bold="True" OnClick="btnInicio_Click" Text="Início" />
+                        <br />
+                        <asp:ImageButton ID="ImageButton2" runat="server" CssClass="iconButton" Height="30px" ImageAlign="Middle" ImageUrl="~/fonts/new-document.png" Width="30px" />
+                        <asp:Button ID="btnCadastro" runat="server" BackColor="Silver" BorderStyle="None" CssClass="inicioButton" Font-Bold="True" OnClick="btnCadastro_Click" Text="Cadastro" />
+                        <br />
+                        <asp:ImageButton ID="ImageButton3" runat="server" CssClass="iconButton" Height="30px" ImageUrl="~/fonts/relatorio.png" Width="30px" />
+                        <asp:Button ID="btnRelatorio" runat="server" BackColor="Silver" BorderStyle="None" CssClass="inicioButton" Font-Bold="True" OnClick="btnRelatorio_Click" Text="Relatórios" />
+                        <br />
+                        <asp:ImageButton ID="ImageButton4" runat="server" CssClass="iconButton" Height="30px" ImageUrl="~/fonts/importar.png" Width="30px" />
+                        <asp:Button ID="btnImportar" runat="server" BackColor="Silver" BorderStyle="None" CssClass="inicioButton" Font-Bold="True" OnClick="btnImportar_Click" Text="Importar" />
+                        <br />
+                        <asp:ImageButton ID="ImageButton5" runat="server" CssClass="iconButton" Height="30px" ImageUrl="~/fonts/exportar.png" Width="30px" />
+                        <asp:Button ID="btnExportar" runat="server" BackColor="Silver" BorderStyle="None" CssClass="inicioButton" Font-Bold="True" OnClick="btnExportar_Click" Text="Exportar" />
 
-            <asp:ContentPlaceHolder ID="MainContent" runat="server">
-            </asp:ContentPlaceHolder>
-            <hr />
+                    </div>
+                </td>
+
+                <td >
+                    <div class="contentPlaceHolder" width="1800px">
+                        <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </div>
+                </td>
+            </tr>
+            <table>
     </form>
 </body>
 </html>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>    
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
 <script>
 
     $("#MainContent_txtCpfCnpj").keydown(function () {
@@ -108,7 +132,7 @@
             $("#MainContent_txtTelefone").unmask();
         } catch (e) { }
 
-        $("#MainContent_txtTelefone").mask("(99) 99999-9999");      
+        $("#MainContent_txtTelefone").mask("(99) 99999-9999");
 
         // ajustando foco
         var elem = this;
