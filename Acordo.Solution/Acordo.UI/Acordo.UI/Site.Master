@@ -16,6 +16,7 @@
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
 
+
 </head>
 <body>
     <form runat="server" class="form1">
@@ -70,3 +71,70 @@
     </form>
 </body>
 </html>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>    
+<script>
+
+    $("#MainContent_txtCpfCnpj").keydown(function () {
+        debugger
+        try {
+            $("#MainContent_txtCpfCnpj").unmask();
+        } catch (e) { }
+
+        var tamanho = $("#MainContent_txtCpfCnpj").val().length;
+
+        if (tamanho < 11) {
+            $("#MainContent_txtCpfCnpj").mask("999.999.999-99");
+        } else {
+            $("#MainContent_txtCpfCnpj").mask("99.999.999/9999-99");
+        }
+
+        // ajustando foco
+        var elem = this;
+        setTimeout(function () {
+            // mudo a posição do seletor
+            elem.selectionStart = elem.selectionEnd = 10000;
+        }, 0);
+        // reaplico o valor para mudar o foco
+        var currentValue = $(this).val();
+        $(this).val('');
+        $(this).val(currentValue);
+    });
+
+    $("#MainContent_txtTelefone").keydown(function () {
+        debugger
+        try {
+            $("#MainContent_txtTelefone").unmask();
+        } catch (e) { }
+
+        $("#MainContent_txtTelefone").mask("(99) 99999-9999");      
+
+        // ajustando foco
+        var elem = this;
+        setTimeout(function () {
+            // mudo a posição do seletor
+            elem.selectionStart = elem.selectionEnd = 10000;
+        }, 0);
+        // reaplico o valor para mudar o foco
+        var currentValue = $(this).val();
+        $(this).val('');
+        $(this).val(currentValue);
+    });
+
+    $("#MainContent_txtValorAcordo").keyup(function () {
+        var elemento = document.getElementById('MainContent_txtValorAcordo');
+        var valor = elemento.value;
+
+        valor = valor + '';
+        valor = parseInt(valor.replace(/[\D]+/g, ''));
+        valor = valor + '';
+        valor = valor.replace(/([0-9]{2})$/g, ",$1");
+
+        if (valor.length > 6) {
+            valor = valor.replace(/([0-9]{3}),([0-9]{2}$)/g, ".$1,$2");
+        }
+
+        elemento.value = valor;
+    });
+</script>

@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -16,33 +17,50 @@ namespace Acordo.UI.Paginas
         }
         protected void cadastrarButton_Click(object sender, EventArgs e)
         {
-            String nome = txtNome.Text;
-            String telefone = txtTelefone.Text;
-            String email = txtEmail.Text;
-            String cpfCnpj = txtCpfCnpj.Text;
-            string valorAcordo = txtValorAcordo.Text;
+            try
+            {
+                String nome = txtNome.Text;
+                String telefone = RemoverCaracteresEspeciais(txtTelefone.Text);
+                String email = txtEmail.Text;
+                String cpfCnpj = RemoverCaracteresEspeciais(txtCpfCnpj.Text);
+                string valorAcordo = txtValorAcordo.Text;
 
-            bool resultadoValicadao = validarCampos(nome, telefone, email, cpfCnpj, valorAcordo);
+                bool resultadoValicadao = validarCampos(nome, telefone, email, cpfCnpj, valorAcordo);
 
-            bool isCpf = txtCpfCnpj.MaxLength == 11 ? true : false;
+                bool isCpf = txtCpfCnpj.MaxLength == 11 ? true : false;
 
-            if (!resultadoValicadao)
-                return;
+                if (!resultadoValicadao)
+                    return;
 
-            Decimal valorAcordoConvertido = Decimal.Parse(valorAcordo);
+                Decimal valorAcordoConvertido = Decimal.Parse(valorAcordo);
 
-            AcordoServico acordoServico = new AcordoServico();
-
-
-            if (isCpf)
-                acordoServico.SalvarAcordo(nome, email, telefone, cpfCnpj, null, valorAcordoConvertido);
-            else
-                acordoServico.SalvarAcordo(nome, email, telefone, null, cpfCnpj, valorAcordoConvertido);
+                AcordoServico acordoServico = new AcordoServico();
 
 
-            lblMensagem.Text = "Cadastro inserido!";
-            lblMensagem.ForeColor = System.Drawing.Color.Green;
-            lblMensagem.Visible = true;
+                if (isCpf)
+                    acordoServico.SalvarAcordo(nome, email, telefone, cpfCnpj, null, valorAcordoConvertido);
+                else
+                    acordoServico.SalvarAcordo(nome, email, telefone, null, cpfCnpj, valorAcordoConvertido);
+
+
+                lblMensagem.Text = "Cadastro inserido!";
+                lblMensagem.ForeColor = System.Drawing.Color.Green;
+                lblMensagem.Visible = true;
+            }
+            catch (Exception ex)
+            {
+                lblMensagem.Text = "Erro no sistema";
+                lblMensagem.ForeColor = System.Drawing.Color.Red;
+                lblMensagem.Visible = true;
+            }
+        }
+
+        private string RemoverCaracteresEspeciais(string texto)
+        {
+            string pattern = @"(?i)[^0-9a-záéíóúàèìòùâêîôûãõç\s]";
+            string replacement = "";
+            Regex rgx = new Regex(pattern);
+            return rgx.Replace(texto.Replace(" ", ""), replacement);
         }
 
         private bool validarCampos(String nome, String telefone, String email, String cpfCnpj, string valorAcordo)

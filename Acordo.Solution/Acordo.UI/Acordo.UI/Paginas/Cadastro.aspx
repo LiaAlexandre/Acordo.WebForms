@@ -16,7 +16,7 @@
         </asp:Panel>
         <asp:Panel ID="Panel5" runat="server" BackColor="Black" Direction="LeftToRight" Height="35px" HorizontalAlign="Center" Width="230px">
             <asp:Label ID="Label4" runat="server" Text="CPF/CNPJ:"></asp:Label>
-            <asp:TextBox ID="txtCpfCnpj" runat="server" ForeColor="#666666"></asp:TextBox>
+            <asp:TextBox ID="txtCpfCnpj" runat="server" ForeColor="#666666" class="cpfOuCnpj"></asp:TextBox>
          </asp:Panel>
         <asp:Panel ID="Panel6" runat="server" BackColor="Black" Direction="LeftToRight" Height="35px" HorizontalAlign="Center" Width="230px">
             <asp:Label ID="Label5" runat="server" Text="Valor Acordo:"></asp:Label>
