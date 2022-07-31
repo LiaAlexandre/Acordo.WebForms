@@ -1,4 +1,5 @@
-﻿using Acordo.Repositorio;
+﻿using Acordo.Entidade;
+using Acordo.Repositorio;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -61,6 +62,11 @@ namespace Acordo.Servico
 
                             Decimal valorAcordoConvertido = Decimal.Parse(valorAcordo);
                             DateTime dataAcordoConvertido = DateTime.Parse(dataAcordo);
+
+                            AcordoImportacao acordoImportacao = _acordoRepositorio.BuscarAcordoImportacaoPorNome(nome);
+
+                            if (acordoImportacao != null)
+                                continue;
 
                             _acordoRepositorio.SalvarImportacao(nome, email, telefone, cpfCnpj, cpfCnpj, valorAcordoConvertido, dataAcordoConvertido);
                         }

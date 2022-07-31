@@ -45,6 +45,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Acordo.Entidade\Acordo.Entidade.csproj">
+      <Project>{E78D06A8-A9F2-411F-8621-EE8C8B1271A8}</Project>
+      <Name>Acordo.Entidade</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Acordo.Repositorio\Acordo.Repositorio.csproj">
       <Project>{857E88D1-EFBF-4D23-A060-21F2DA46E346}</Project>
       <Name>Acordo.Repositorio</Name>

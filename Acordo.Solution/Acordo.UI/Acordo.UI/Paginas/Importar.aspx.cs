@@ -40,11 +40,23 @@ namespace Acordo.UI.Paginas
                     AcordoServico acordoServico = new AcordoServico();
 
                     acordoServico.SalvarAcordosEmLote(nomeDaPasta);
+
+                    lblResultadoImportacao.Text = "Importação Realizada com Sucesso";
+                    lblResultadoImportacao.ForeColor = System.Drawing.Color.Green;
+                    lblResultadoImportacao.Visible = true;
+                }
+                else
+                {
+                    lblResultadoImportacao.Text = "Erro na importação dos dados";
+                    lblResultadoImportacao.ForeColor = System.Drawing.Color.Red;
+                    lblResultadoImportacao.Visible = true;
                 }
             }
             catch (Exception ex)
             {
-                
+                lblResultadoImportacao.Text = "Erro na importação dos dados";
+                lblResultadoImportacao.ForeColor = System.Drawing.Color.Red;
+                lblResultadoImportacao.Visible = true;
             }
         }
 

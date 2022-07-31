@@ -17,11 +17,11 @@
                                 <asp:Label ID="lblArquivo" runat="server" Text="Arquivo" ForeColor="White"></asp:Label>
                             <br />
                             <br />  
-                                <input id="inputArquivo" type="file" runat="server" NAME="oFile" hidden  Text="BUSCA .CSV" Font-Size="Large" ForeColor="White" BackColor="#000066" Font-Bold="True" Visible="true" />
-                                <asp:Button ID="btnEnviar" runat="server" type="submit"  /><br />
-                                <asp:Label ID="lblResultadoImportacao" runat="server" Text="Importação Realizada com Sucesso" ForeColor="Lime" Font-Size="Larger" Visible="false"></asp:Label>
+                                <input id="inputArquivo" type="file" runat="server" NAME="arquivo" hidden  Text="BUSCA .CSV" Font-Size="Large" ForeColor="White" BackColor="#000066" Font-Bold="True" Visible="true" />
                                 <br />
-                                <asp:Button ID="btnImportar" runat="server" Text="IMPORTAR" Font-Size="Large" ForeColor="White" BackColor="#000066" Font-Bold="True" OnClick="btnImportar_Click" />
+                                <asp:Button ID="btnImportar" runat="server" Text="IMPORTAR" Font-Size="Large" ForeColor="White" BackColor="#000066" OnClick="btnImportar_Click" />
+                            <br />
+                                <asp:Label ID="lblResultadoImportacao" runat="server" Text="Importação Realizada com Sucesso"  Font-Bold="True" Font-Size="20px" Visible="false"></asp:Label>
 
                         </td>
                     </tr>

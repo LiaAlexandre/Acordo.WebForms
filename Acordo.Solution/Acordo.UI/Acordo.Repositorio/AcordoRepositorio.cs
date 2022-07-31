@@ -1,4 +1,5 @@
-﻿using Acordo.Repositorio.Base;
+﻿using Acordo.Entidade;
+using Acordo.Repositorio.Base;
 using Dapper;
 using System;
 using System.Collections.Generic;
@@ -40,6 +41,15 @@ namespace Acordo.Repositorio
             param.Add("@paramValorAcordo", valorDoAcordo);
 
             SqlMapper.Execute(_connectionFactory.GetConnection, query, param, null, null, CommandType.StoredProcedure);
+        }
+
+        public AcordoImportacao BuscarAcordoImportacaoPorNome(String nome)
+        {
+            var query = "SP_BUSCAR_CRC_ACORDOIMPORTACAO_CVS_PORNOME";
+            var param = new DynamicParameters();
+            param.Add("@paramNomeAcordo", nome);
+
+            return SqlMapper.QueryFirstOrDefault<AcordoImportacao>(_connectionFactory.GetConnection, query, param, null,  null, CommandType.StoredProcedure);
         }
     }
 }
